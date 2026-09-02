@@ -1,0 +1,56 @@
+# dependencies
+node_modules/
+.pnpm-store/
+
+# builds
+dist/
+build/
+.next/
+out/
+*.tsbuildinfo
+
+# python (depth service)
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+*.egg-info/
+
+# environment
+.env
+.env.local
+.env.*.local
+!.env.example
+
+# test and coverage
+coverage/
+.nyc_output/
+playwright-report/
+test-results/
+
+# evaluation artefacts
+evals/runs/
+evals/reports/
+
+# model fixtures are committed; recorded raw responses are not
+fixtures/raw/
+
+# user data must never be committed
+**/user-photos/
+**/golden-set/images/
+
+# logs
+*.log
+npm-debug.log*
+pnpm-debug.log*
+
+# editors and OS
+.vscode/
+!.vscode/extensions.json
+.idea/
+.DS_Store
+Thumbs.db
+
+# local infrastructure
+docker-compose.override.yml
+.data/

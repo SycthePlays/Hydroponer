@@ -1,0 +1,59 @@
+name: Bug report
+description: Something in the product or the documentation is wrong or broken
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        For a wrong horticultural value use the **Domain correction** template instead.
+        For a security or physical-safety issue, do not open an issue — see SECURITY.md.
+
+  - type: dropdown
+    id: area
+    attributes:
+      label: Area
+      options:
+        - Documentation
+        - Capture / upload
+        - Scene analysis
+        - Layout / design engine
+        - Bill of materials or cost
+        - Tutorial
+        - 3D viewer
+        - Accounts, sharing, export
+        - Other
+    validations:
+      required: true
+
+  - type: input
+    id: plan_id
+    attributes:
+      label: Plan id
+      description: If this concerns a generated plan. It resolves to a full trace of what produced the output.
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: What you expected
+    validations:
+      required: true
+
+  - type: textarea
+    id: actual
+    attributes:
+      label: What happened instead
+    validations:
+      required: true
+
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+    validations:
+      required: true
+
+  - type: input
+    id: environment
+    attributes:
+      label: Device and browser
+      placeholder: Android 14, Chrome 141, mid-range phone

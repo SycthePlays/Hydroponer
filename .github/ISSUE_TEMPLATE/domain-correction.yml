@@ -1,0 +1,48 @@
+name: Domain correction
+description: A horticultural or engineering value in the documentation or catalog is wrong
+labels: ["domain", "needs-review"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Domain corrections are the highest-value contribution to this project.
+        Every catalog value must be sourced — please include where the correct figure comes from.
+
+  - type: input
+    id: location
+    attributes:
+      label: Where is it
+      description: File and section, or catalog item id
+      placeholder: docs/07-domain-model.md, section 7.3 Light model
+    validations:
+      required: true
+
+  - type: input
+    id: current
+    attributes:
+      label: Current value
+      placeholder: "Leafy greens: DLI 12-17"
+    validations:
+      required: true
+
+  - type: input
+    id: proposed
+    attributes:
+      label: Proposed value
+      placeholder: "Leafy greens: DLI 14-18"
+    validations:
+      required: true
+
+  - type: textarea
+    id: source
+    attributes:
+      label: Source
+      description: Extension service publication, peer-reviewed literature, or manufacturer specification. Values from a language model are not accepted.
+    validations:
+      required: true
+
+  - type: textarea
+    id: impact
+    attributes:
+      label: What this changes
+      description: What would be designed differently if the corrected value were used

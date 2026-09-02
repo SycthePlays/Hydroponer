@@ -1,0 +1,41 @@
+name: Design challenge
+description: Argue that an architecture or product decision is wrong
+labels: ["design", "discussion"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Architecture decision records are meant to be contested before they are built on.
+        A good challenge names the decision, the case against it, and what it would cost to change.
+
+  - type: input
+    id: decision
+    attributes:
+      label: Which decision
+      description: ADR number, or the document and section
+      placeholder: ADR-0003 (curated catalog, not live scraping)
+    validations:
+      required: true
+
+  - type: textarea
+    id: case
+    attributes:
+      label: The case against
+      description: What is wrong with it, and under what conditions
+    validations:
+      required: true
+
+  - type: textarea
+    id: alternative
+    attributes:
+      label: What you would do instead
+    validations:
+      required: true
+
+  - type: textarea
+    id: cost
+    attributes:
+      label: What the alternative costs
+      description: An honest account of its downsides. A challenge that lists only upsides is not yet an argument.
+    validations:
+      required: true
