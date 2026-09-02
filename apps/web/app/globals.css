@@ -1,0 +1,233 @@
+@import "tailwindcss";
+
+/* ============================================================
+   Hydroponer design tokens
+   Grounded in the subject: nutrient solution, canopy green,
+   paper for drawings, and a blueprint blue for measurements.
+   ============================================================ */
+
+:root {
+  --paper:        #FBFAF6;
+  --surface:      #FFFFFF;
+  --surface-2:    #F3F2EA;
+  --surface-3:    #E9E8DD;
+
+  --ink:          #12191A;
+  --ink-2:        #46524F;
+  --ink-3:        #7B8783;
+
+  --line:         #E2E1D6;
+  --line-2:       #CFCEC0;
+
+  --canopy:       #0F6B57;
+  --canopy-ink:   #0A503F;
+  --canopy-wash:  #E3F0EB;
+
+  --nutrient:     #A8710F;
+  --nutrient-ink: #7E5309;
+  --nutrient-wash:#F6EEDC;
+
+  --clay:         #A93B26;
+  --clay-wash:    #F8E7E3;
+
+  --blueprint:    #35708A;
+  --blueprint-ink:#265468;
+  --blueprint-wash:#E4EFF3;
+
+  --shadow-sm: 0 1px 2px rgba(18, 25, 26, .05);
+  --shadow:    0 1px 2px rgba(18, 25, 26, .04), 0 10px 28px -14px rgba(18, 25, 26, .22);
+  --shadow-lg: 0 2px 4px rgba(18, 25, 26, .05), 0 24px 56px -20px rgba(18, 25, 26, .28);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --paper:        #0B1210;
+    --surface:      #101A17;
+    --surface-2:    #16221E;
+    --surface-3:    #1E2C27;
+
+    --ink:          #E9EFEB;
+    --ink-2:        #AEBCB6;
+    --ink-3:        #7A8A84;
+
+    --line:         #223029;
+    --line-2:       #2E4139;
+
+    --canopy:       #45C6A5;
+    --canopy-ink:   #7FDCC2;
+    --canopy-wash:  #11332B;
+
+    --nutrient:     #DFA43C;
+    --nutrient-ink: #EEC271;
+    --nutrient-wash:#2C2314;
+
+    --clay:         #E28472;
+    --clay-wash:    #331C18;
+
+    --blueprint:    #62B4C8;
+    --blueprint-ink:#93CFDE;
+    --blueprint-wash:#132A32;
+
+    --shadow-sm: 0 1px 2px rgba(0, 0, 0, .4);
+    --shadow:    0 1px 2px rgba(0, 0, 0, .4), 0 10px 28px -14px rgba(0, 0, 0, .7);
+    --shadow-lg: 0 2px 4px rgba(0, 0, 0, .5), 0 24px 56px -20px rgba(0, 0, 0, .8);
+  }
+}
+
+:root[data-theme="dark"] {
+  --paper:        #0B1210;
+  --surface:      #101A17;
+  --surface-2:    #16221E;
+  --surface-3:    #1E2C27;
+
+  --ink:          #E9EFEB;
+  --ink-2:        #AEBCB6;
+  --ink-3:        #7A8A84;
+
+  --line:         #223029;
+  --line-2:       #2E4139;
+
+  --canopy:       #45C6A5;
+  --canopy-ink:   #7FDCC2;
+  --canopy-wash:  #11332B;
+
+  --nutrient:     #DFA43C;
+  --nutrient-ink: #EEC271;
+  --nutrient-wash:#2C2314;
+
+  --clay:         #E28472;
+  --clay-wash:    #331C18;
+
+  --blueprint:    #62B4C8;
+  --blueprint-ink:#93CFDE;
+  --blueprint-wash:#132A32;
+
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, .4);
+  --shadow:    0 1px 2px rgba(0, 0, 0, .4), 0 10px 28px -14px rgba(0, 0, 0, .7);
+  --shadow-lg: 0 2px 4px rgba(0, 0, 0, .5), 0 24px 56px -20px rgba(0, 0, 0, .8);
+}
+
+@theme inline {
+  --color-paper:      var(--paper);
+  --color-surface:    var(--surface);
+  --color-surface-2:  var(--surface-2);
+  --color-surface-3:  var(--surface-3);
+
+  --color-ink:        var(--ink);
+  --color-ink-2:      var(--ink-2);
+  --color-ink-3:      var(--ink-3);
+
+  --color-line:       var(--line);
+  --color-line-2:     var(--line-2);
+
+  --color-canopy:     var(--canopy);
+  --color-canopy-ink: var(--canopy-ink);
+  --color-canopy-wash:var(--canopy-wash);
+
+  --color-nutrient:     var(--nutrient);
+  --color-nutrient-ink: var(--nutrient-ink);
+  --color-nutrient-wash:var(--nutrient-wash);
+
+  --color-clay:       var(--clay);
+  --color-clay-wash:  var(--clay-wash);
+
+  --color-blueprint:      var(--blueprint);
+  --color-blueprint-ink:  var(--blueprint-ink);
+  --color-blueprint-wash: var(--blueprint-wash);
+
+  --font-display: var(--font-fraunces), Georgia, "Times New Roman", serif;
+  --font-sans:    var(--font-public-sans), ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-mono:    var(--font-plex-mono), ui-monospace, SFMono-Regular, Menlo, monospace;
+
+  --shadow-card:   var(--shadow);
+  --shadow-raised: var(--shadow-lg);
+}
+
+/* ---------------- base ---------------- */
+
+* { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-sans);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  line-height: 1.14;
+  text-wrap: balance;
+  letter-spacing: -0.012em;
+}
+
+:focus-visible {
+  outline: 2px solid var(--canopy);
+  outline-offset: 2px;
+  border-radius: 3px;
+}
+
+::selection {
+  background: var(--canopy-wash);
+  color: var(--canopy-ink);
+}
+
+/* ---------------- product utilities ---------------- */
+
+/* Measurements read as data, never as prose. */
+.measure {
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.01em;
+}
+
+.label {
+  font-family: var(--font-mono);
+  font-size: 0.66rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+}
+
+/* Faint graph-paper ground for drawing surfaces. */
+.graph-paper {
+  background-color: var(--surface);
+  background-image:
+    linear-gradient(to right, var(--line) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--line) 1px, transparent 1px);
+  background-size: 24px 24px;
+  background-position: -1px -1px;
+}
+
+.hide-scrollbar { scrollbar-width: none; }
+.hide-scrollbar::-webkit-scrollbar { display: none; }
+
+@keyframes rise {
+  from { opacity: 0; transform: translateY(6px); }
+  to   { opacity: 1; transform: none; }
+}
+.rise { animation: rise .4s cubic-bezier(.2,.7,.3,1) both; }
+
+@keyframes sweep {
+  from { background-position: 200% 0; }
+  to   { background-position: -200% 0; }
+}
+.shimmer {
+  background: linear-gradient(90deg, var(--surface-2) 25%, var(--surface-3) 50%, var(--surface-2) 75%);
+  background-size: 200% 100%;
+  animation: sweep 1.4s linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
