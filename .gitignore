@@ -2,9 +2,15 @@
 node_modules/
 .pnpm-store/
 
-# builds
-dist/
-build/
+# build output
+# Anchored on purpose: a bare "build/" or "dist/" also matches a Next.js
+# route segment such as app/designs/[id]/build, and silently drops the page.
+/build/
+/dist/
+apps/*/build/
+apps/*/dist/
+packages/*/build/
+packages/*/dist/
 .next/
 out/
 *.tsbuildinfo
